@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const LeftContent = () => {
-  return (
-    <div>LeftContent</div>
-  )
-}
+  return <div className="left">LeftContent</div>;
+};
 
-export default LeftContent
+export default LeftContent;

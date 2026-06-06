@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const CompanySchedule = () => {
-  return (
-    <div>CompanySchedule</div>
-  )
-}
+  return <div>CompanySchedule</div>;
+};
 
-export default CompanySchedule
+export default CompanySchedule;
