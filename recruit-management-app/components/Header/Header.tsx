@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="header">
+    <header className="header flex">
       <div className="header-title">
         <Link href="/">就活管理</Link>
       </div>
