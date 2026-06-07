@@ -12,6 +12,6 @@ export interface company_type {
 export interface intern {
     date: number;//yyyymmdd
     time: number;//hhmm
-    tytle: string;//タイトル
+    title: string;//タイトル
     place: string;//場所
 }

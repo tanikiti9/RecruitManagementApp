@@ -13,13 +13,13 @@ export const companies: company_type[] = [
             {
                 date: 20260615,
                 time: 1330,
-                tytle: "会社説明会",
+                title: "会社説明会",
                 place: "大阪本社"
             },
             {
                 date: 20260620,
                 time: 1000,
-                tytle: "一次面接",
+                title: "一次面接",
                 place: "オンライン"
             }
         ]
@@ -36,7 +36,7 @@ export const companies: company_type[] = [
             {
                 date: 20260618,
                 time: 1400,
-                tytle: "インターン",
+                title: "インターン",
                 place: "東京支社"
             }
         ]
@@ -53,7 +53,7 @@ export const companies: company_type[] = [
             {
                 date: 20260625,
                 time: 1600,
-                tytle: "カジュアル面談",
+                title: "カジュアル面談",
                 place: "梅田カフェ"
             }
         ]
