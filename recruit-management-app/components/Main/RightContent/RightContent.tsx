@@ -1,20 +1,25 @@
 import CompanySchedule from "@/components/CompanySummary/CompanySchedule";
 import CompanySummary from "@/components/CompanySummary/CompanySummary";
 import RightHeader from "@/components/Header/RightHeader";
-import React from "react";
+import { company_type } from "@/type/interface";
 
-const RightContent = () => {
+interface Props {
+  company: company_type
+}
+
+const RightContent = ({ company }: Props) => {
+  console.log(company)
   return (
     <div className="right">
       <div className="right-header">
-        <RightHeader />
+        <RightHeader company={company} />
       </div>
       <div className="right-main  flex">
         <div className="Summary">
-          <CompanySummary />
+          <CompanySummary company={company} />
         </div>
         <div className="Schedule">
-          <CompanySchedule />
+          <CompanySchedule company={company} />
         </div>
       </div>
     </div>

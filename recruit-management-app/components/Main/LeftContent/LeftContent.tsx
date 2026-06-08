@@ -1,15 +1,21 @@
+'use client'
 import { companies } from "@/data/companies";
 import SummaryCard from "./SummaryCard";
 
+interface Props {
+  onSelect: (id: number) => void
+}
 
-const LeftContent = () => {
+const LeftContent = ({onSelect}: Props) => {
   return (
     <div className="left">
       {companies.map((company) => (
-          <SummaryCard
-            key={company.id}
-            interns={company.plan}
-          />
+        <div
+          key={company.id}
+          onClick={() =>onSelect(company.id)}
+        >
+          <SummaryCard interns={company.plan} />
+        </div>
       ))}
     </div>
   );

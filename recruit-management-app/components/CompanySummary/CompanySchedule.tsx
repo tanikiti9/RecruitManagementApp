@@ -1,7 +1,13 @@
 import React from "react";
+import SummaryCard from "../Main/LeftContent/SummaryCard";
+import { company_type } from "@/type/interface";
 
-const CompanySchedule = () => {
-  return <div>CompanySchedule</div>;
+interface Props {
+  company: company_type
+}
+
+const CompanySchedule = ({company}: Props) => {
+  return <div><SummaryCard interns={company.plan}/></div>;
 };
 
 export default CompanySchedule;

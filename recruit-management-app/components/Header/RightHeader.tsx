@@ -1,7 +1,10 @@
-import React from "react";
+import { company_type } from "@/type/interface";
+interface Props {
+  company: company_type;
+}
 
-const RightHeader = () => {
-  return <div>RightHeader</div>;
+const RightHeader = ({ company }: Props) => {
+  return <div>{company.name}</div>;
 };
 
 export default RightHeader;
