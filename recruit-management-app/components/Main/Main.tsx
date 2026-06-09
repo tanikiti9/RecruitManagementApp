@@ -7,7 +7,7 @@ import { company_type } from "@/type/interface";
 
 const Main = () => {
   const [companies, setCompanies] = useState<company_type[]>([]);
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

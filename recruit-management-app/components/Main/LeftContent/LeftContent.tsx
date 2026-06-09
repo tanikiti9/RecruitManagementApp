@@ -10,7 +10,7 @@ interface PlanWithCompany extends intern {
 
 interface Props {
   companies: company_type[]
-  selectedId: string
+  selectedId: string | null
   onSelect: (id: string) => void
 }
 
