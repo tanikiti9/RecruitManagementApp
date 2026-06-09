@@ -24,12 +24,12 @@ const Main = () => {
 
   if (!selectedCompany) return <div>データがありません</div>;
 
-  if (loading) return <div className="p-8">読み込み中...</div>
-  if (companies.length === 0) return <div className="p-8">企業が登録されていません</div>
+  if (loading) return <div>読み込み中...</div>
+  if (companies.length === 0) return <div>企業が登録されていません</div>
   if (!selectedCompany) return null
 
   return (
-    <div className="main flex">
+    <div className="main">
       <LeftContent
         companies={companies}
         selectedId={selectedId}

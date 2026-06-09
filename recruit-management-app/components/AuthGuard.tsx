@@ -23,7 +23,7 @@ export default function AuthGuard({
         return () => unsubscribe();
     }, [router]);
 
-    if (loading) return <div className="p-8">読み込み中...</div>;
+    if (loading) return <div>読み込み中...</div>;
 
     return <>{children}</>;
 }

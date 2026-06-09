@@ -14,7 +14,7 @@ const RightContent = ({ company }: Props) => {
       <div className="right-header">
         <RightHeader company={company} />
       </div>
-      <div className="right-main  flex">
+      <div className="right-main">
         <div className="Summary">
           <CompanySummary company={company} />
         </div>

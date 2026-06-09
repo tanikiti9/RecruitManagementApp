@@ -45,72 +45,53 @@ const AddInfo = () => {
   }
 
   return (
-    <div className="p-8 max-w-xl mx-auto">
-      <h1 className="text-xl font-bold mb-6">企業情報の登録</h1>
+    <div>
+      <h1>企業情報の登録</h1>
 
       <input
         type="text"
         placeholder="企業名"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="border p-2 mb-2 w-full rounded"
       />
       <input
         type="number"
         placeholder="資本金"
         value={capital}
         onChange={(e) => setCapital(e.target.value)}
-        className="border p-2 mb-2 w-full rounded"
       />
       <input
         type="text"
         placeholder="代表取締役"
         value={director}
         onChange={(e) => setDirector(e.target.value)}
-        className="border p-2 mb-2 w-full rounded"
       />
       <input
         type="text"
         placeholder="その他情報"
         value={summary}
         onChange={(e) => setSummary(e.target.value)}
-        className="border p-2 mb-4 w-full rounded"
       />
 
-      <p className="font-bold mb-1">スケール：{scale}</p>
-      <div className="flex gap-2 mb-4">
+      <p>スケール：{scale}</p>
+      <div>
         {(["大", "中", "小"] as const).map((v) => (
-          <button
-            key={v}
-            onClick={() => setScale(v)}
-            className={`px-4 py-2 rounded border ${
-              scale === v ? "bg-blue-500 text-white" : "bg-white"
-            }`}
-          >
+          <button key={v} onClick={() => setScale(v)}>
             {v}
           </button>
         ))}
       </div>
 
-      <p className="font-bold mb-1">優先度：{priority}</p>
-      <div className="flex gap-2 mb-8">
+      <p>優先度：{priority}</p>
+      <div>
         {(["大", "中", "小"] as const).map((v) => (
-          <button
-            key={v}
-            onClick={() => setPriority(v)}
-            className={`px-4 py-2 rounded border ${
-              priority === v ? "bg-blue-500 text-white" : "bg-white"
-            }`}
-          >
+          <button key={v} onClick={() => setPriority(v)}>
             {v}
           </button>
         ))}
       </div>
 
-      <button
-        onClick={handleSend}
-        className="bg-blue-500 text-white w-full py-3 rounded text-lg font-bold"
-      >
+      <button onClick={handleSend}>
         企業を登録する
       </button>
     </div>

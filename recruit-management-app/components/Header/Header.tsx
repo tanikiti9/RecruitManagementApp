@@ -13,11 +13,11 @@ const Header = () => {
   };
 
   return (
-    <header className="header flex">
+    <header className="header">
       <div className="header-title">
         <Link href="/">就活管理</Link>
       </div>
-      <div className="flex gap-2">
+      <div>
         <Link href="/addpage">
           <button className="add-btn">企業追加</button>
         </Link>

@@ -71,14 +71,13 @@ const AddPlan = () => {
 
 
     return (
-        <div className="p-8 max-w-xl mx-auto">
-            <h1 className="text-xl font-bold mb-6">予定の追加</h1>
+        <div>
+            <h1>予定の追加</h1>
 
-            <p className="font-bold mb-1">企業を選択</p>
+            <p>企業を選択</p>
             <select
                 value={selectedId}
                 onChange={(e) => setSelectedId(e.target.value)}
-                className="border p-2 mb-4 w-full rounded"
             >
                 {companies.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -92,33 +91,26 @@ const AddPlan = () => {
                 type="date"
                 value={planDate}
                 onChange={(e) => setPlanDate(e.target.value)}
-                className="border p-2 mb-2 w-full rounded"
             />
             <input
                 type="time"
                 value={planTime}
                 onChange={(e) => setPlanTime(e.target.value)}
-                className="border p-2 mb-2 w-full rounded"
             />
             <input
                 type="text"
-                placeholder="タイトル（例：一次面接）"
+                placeholder="タイトル（例：一次面接)"
                 value={planTitle}
                 onChange={(e) => setPlanTitle(e.target.value)}
-                className="border p-2 mb-2 w-full rounded"
             />
             <input
                 type="text"
-                placeholder="場所（例：大阪本社）"
+                placeholder="場所（例：大阪本社)"
                 value={planPlace}
                 onChange={(e) => setPlanPlace(e.target.value)}
-                className="border p-2 mb-6 w-full rounded"
             />
 
-            <button
-                onClick={handleSend}
-                className="bg-blue-500 text-white w-full py-3 rounded text-lg font-bold"
-            >
+            <button onClick={handleSend}>
                 予定を追加する
             </button>
         </div>

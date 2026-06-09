@@ -9,7 +9,7 @@ const SummaryCard = ({interns}: Props) => {
   return (
     <div>
         {interns.map((intern, index) => (
-        <div className="flex" key={index}>
+        <div key={index}>
           <div>{intern.date}</div>
           <div>{intern.time}</div>
           <div>{intern.title}</div>

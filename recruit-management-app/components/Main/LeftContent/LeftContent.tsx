@@ -31,18 +31,13 @@ const LeftContent = ({ companies, selectedId, onSelect }: Props) => {
       return aVal - bVal //ここ難しい
     })
   return (
-    <div className="left overflow-y-auto">
+    <div className="left">
       {allPlans.length === 0 && (
-        <p className="p-4 text-gray-500">予定がありません</p>
+        <p>予定がありません</p>
       )}
       {allPlans.map((plan, index) => (
-        <div
-          key={index}
-          onClick={() => onSelect(plan.companyId)}
-          className={`cursor-pointer p-3 border-b hover:bg-gray-100 ${selectedId === plan.companyId ? "bg-blue-50 border-l-4 border-l-blue-500" : ""
-            }`}
-        >
-          <p className="text-sm font-bold">{plan.companyName}</p>
+        <div key={index} onClick={() => onSelect(plan.companyId)}>
+          <p>{plan.companyName}</p>
           <SummaryCard interns={[plan]} />
         </div>
       ))}
