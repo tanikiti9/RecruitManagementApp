@@ -1,5 +1,5 @@
 export interface company_type {
-    id: number;
+    id: string | number;
     name: string;//会社名
     capital: number;//資本金
     director: string;//代表取締役
