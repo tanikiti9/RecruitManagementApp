@@ -29,11 +29,20 @@ const Main = () => {
   if (!selectedCompany) return null
 
   return (
-    <div className="main">
+    <div style={{
+      display: "flex"
+    }}>
       <LeftContent
         companies={companies}
         selectedId={selectedId}
-        onSelect={setSelectedId} />
+        onSelect={setSelectedId}
+      />
+      <div style={{
+        width: "1px",
+        marginTop: "20px",
+        marginBottom: "20px",
+        backgroundColor: "#CCCCCC"
+      }} />
       <RightContent company={selectedCompany} />
     </div>
   );

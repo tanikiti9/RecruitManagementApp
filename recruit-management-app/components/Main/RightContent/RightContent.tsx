@@ -10,15 +10,36 @@ interface Props {
 const RightContent = ({ company }: Props) => {
   console.log(company)
   return (
-    <div className="right">
-      <div className="right-header">
+    <div style={{
+      backgroundColor: "#FFFFFF",
+      flex: "1",
+      padding: "5px"
+    }}>
+      <div style={{
+        fontSize: "1.5rem",
+        height: "65px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginLeft: "10px",
+        marginRight: "10px",
+        borderBottom: "1px solid #CCCCCC"
+      }}>
         <RightHeader company={company} />
       </div>
-      <div className="right-main">
-        <div className="Summary">
+      <div style={{ display: "flex", 
+        height: "calc(100vh - 150px)", 
+        padding: "10px"}}>
+        <div style={{ flex: 1 }}>
           <CompanySummary company={company} />
         </div>
-        <div className="Schedule">
+        <div style={{
+        width: "1px",
+        marginTop: "20px",
+        marginBottom: "20px",
+        backgroundColor: "#CCCCCC"
+      }} />
+        <div style={{ flex: 1, padding: "10px"}}>
           <CompanySchedule company={company} />
         </div>
       </div>

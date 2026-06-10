@@ -13,9 +13,15 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
-      <div className="header-title">
-        <Link href="/">就活管理</Link>
+    <header style={{
+      height: "75px",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      backgroundColor: "cyan"
+    }}>
+      <div>
+        <Link href="/" style={{textDecoration: "none", color: "black"}}>就活管理</Link>
       </div>
       <div>
         <Link href="/addpage">

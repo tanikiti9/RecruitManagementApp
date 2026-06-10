@@ -31,14 +31,29 @@ const LeftContent = ({ companies, selectedId, onSelect }: Props) => {
       return aVal - bVal //ここ難しい
     })
   return (
-    <div className="left">
+    <div style={{
+      backgroundColor: "#FFFFFF",
+      height: "calc(100vh - 95px)",
+      flex: "1"
+    }}>
       {allPlans.length === 0 && (
         <p>予定がありません</p>
       )}
       {allPlans.map((plan, index) => (
-        <div key={index} onClick={() => onSelect(plan.companyId)}>
+        <div key={index}
+          onClick={() => onSelect(plan.companyId)}
+          style={{ 
+            padding: "10px",
+            marginLeft: "10px",
+            marginRight: "10px"
+           }}
+        >
           <p>{plan.companyName}</p>
           <SummaryCard interns={[plan]} />
+          <div style={{
+            height: "1px",
+            backgroundColor: "#CCCCCC",
+          }} />
         </div>
       ))}
     </div>

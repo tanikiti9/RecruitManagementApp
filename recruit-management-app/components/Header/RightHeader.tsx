@@ -4,7 +4,9 @@ interface Props {
 }
 
 const RightHeader = ({ company }: Props) => {
-  return <div>{company.name}</div>;
+  return <div>
+    {company.name}
+  </div>;
 };
 
 export default RightHeader;
