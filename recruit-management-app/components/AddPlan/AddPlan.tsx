@@ -54,8 +54,8 @@ const AddPlan = () => {
 
             await updateDoc(companyRef, {
                 plan: arrayUnion({
-                    date: Number(planDate.replace(/-/g, "")),  // 20260615
-                    time: Number(planTime.replace(":", "")),   // 1330
+                    date: Number(planDate.replace(/-/g, "")),
+                    time: planTime.replace(":", ""),
                     title: planTitle,
                     place: planPlace,
                 }),

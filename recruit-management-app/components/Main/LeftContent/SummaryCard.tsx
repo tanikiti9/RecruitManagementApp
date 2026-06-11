@@ -1,3 +1,5 @@
+import DateFormat from '@/components/Conversion/DateFormat'
+import TimeFormat from '@/components/Conversion/TimeFormat'
 import { company_type, intern } from '@/type/interface'
 import React from 'react'
 
@@ -10,7 +12,7 @@ const SummaryCard = ({ interns }: Props) => {
     <div>
       {interns.map((intern, index) => (
         <div key={index}>
-          <div>{intern.date} {intern.time}</div>
+          <div><DateFormat value={intern.date} /> <TimeFormat value={intern.time}/></div>
           <div>{intern.title} {intern.place}</div>
         </div>
       ))}
