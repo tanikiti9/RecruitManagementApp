@@ -6,8 +6,12 @@ interface Props {
   company: company_type
 }
 
-const CompanySchedule = ({company}: Props) => {
-  return <div><SummaryCard interns={company.plan}/></div>;
+const CompanySchedule = ({ company }: Props) => {
+  return <div>
+    <SummaryCard
+      interns={company.plan}
+      companyId={company.id as string} />
+  </div>;
 };
 
 export default CompanySchedule;

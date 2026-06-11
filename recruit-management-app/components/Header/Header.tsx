@@ -21,18 +21,31 @@ const Header = () => {
       backgroundColor: "cyan"
     }}>
       <div>
-        <Link href="/" style={{textDecoration: "none", color: "black"}}>就活管理</Link>
+        <Link href="/" style={{ textDecoration: "none", color: "black" }}>就活管理</Link>
       </div>
-      <div>
+      <div style={{
+        display: "flex",
+        width: "30%",
+        height: "75px",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "20px"
+      }}>
         <Link href="/addpage">
-          <button className="add-btn">企業追加</button>
+          <div>
+            <button className="add-btn">企業追加</button>
+          </div>
         </Link>
         <Link href="/addplan">
-          <button className="add-btn">予定を追加</button>
+          <div>
+            <button className="add-btn">予定を追加</button>
+          </div>
         </Link>
-        <button className="add-btn" onClick={handleLogout}>
-          ログアウト
-        </button>
+        <div>
+          <button className="add-btn" onClick={handleLogout}>
+            ログアウト
+          </button>
+        </div>
       </div>
     </header>
   );

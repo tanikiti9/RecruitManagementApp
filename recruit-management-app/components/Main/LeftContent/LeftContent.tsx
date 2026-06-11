@@ -26,8 +26,8 @@ const LeftContent = ({ companies, selectedId, onSelect }: Props) => {
     )
     .sort((a, b) => {
       // date: 20260615, time: 1330 を組み合わせて比較
-      const aVal = a.date * 10000 + a.time
-      const bVal = b.date * 10000 + b.time
+      const aVal = Number(a.date) * 10000 +  Number(a.time)
+      const bVal =  Number(b.date) * 10000 +  Number(b.time)
       return aVal - bVal //ここ難しい
     })
   return (
@@ -42,14 +42,16 @@ const LeftContent = ({ companies, selectedId, onSelect }: Props) => {
       {allPlans.map((plan, index) => (
         <div key={index}
           onClick={() => onSelect(plan.companyId)}
-          style={{ 
+          style={{
             padding: "10px",
             marginLeft: "10px",
             marginRight: "10px"
-           }}
+          }}
         >
           <p>{plan.companyName}</p>
-          <SummaryCard interns={[plan]} />
+          <SummaryCard
+            interns={[plan]}
+            companyId={plan.companyId} />
           <div style={{
             height: "1px",
             backgroundColor: "#CCCCCC",
