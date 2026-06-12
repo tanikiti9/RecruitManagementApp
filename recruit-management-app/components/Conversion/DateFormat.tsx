@@ -1,6 +1,6 @@
 import React from 'react'
 interface Props {
-  value: number;
+  value: String;
 }
 
 const DateFormat = ({ value }: Props) => {
