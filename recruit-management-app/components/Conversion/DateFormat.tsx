@@ -1,15 +1,17 @@
-import React from 'react'
+import React from "react";
 interface Props {
   value: String;
 }
 
 const DateFormat = ({ value }: Props) => {
-  const year = String(value).slice(0, 4)
-  const month = String(value).slice(4, 6)
-  const day = String(value).slice(6, 8)
+  const year = String(value).slice(0, 4);
+  const month = String(value).slice(4, 6);
+  const day = String(value).slice(6, 8);
   return (
-    <div>{year}年 {month}月 {day}日</div>
-  )
-}
+    <div>
+      {year}年 {month}月 {day}日
+    </div>
+  );
+};
 
-export default DateFormat
+export default DateFormat;

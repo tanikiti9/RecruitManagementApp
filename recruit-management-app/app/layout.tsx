@@ -30,9 +30,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Header />
-        <div style={{margin: "10px"}}>
-          {children}
-        </div>
+        <div style={{ margin: "10px" }}>{children}</div>
       </body>
     </html>
   );

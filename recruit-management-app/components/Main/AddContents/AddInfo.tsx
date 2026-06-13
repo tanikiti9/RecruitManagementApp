@@ -1,28 +1,28 @@
-'use client'
-import { auth, db } from '@/lib/firebase'
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
-import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+"use client";
+import { auth, db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const AddInfo = () => {
-  const router = useRouter()
-  const [name, setName] = useState("")
-  const [capital, setCapital] = useState("")
-  const [director, setDirector] = useState("")
-  const [summary, setSummary] = useState("")
-  const [scale, setScale] = useState<"大" | "中" | "小" | "">("")
-  const [priority, setPriority] = useState<"大" | "中" | "小" | "">("")
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [capital, setCapital] = useState("");
+  const [director, setDirector] = useState("");
+  const [summary, setSummary] = useState("");
+  const [scale, setScale] = useState<"大" | "中" | "小" | "">("");
+  const [priority, setPriority] = useState<"大" | "中" | "小" | "">("");
 
   const handleSend = async () => {
     if (!name || !capital || !director || !scale || !priority) {
-      alert("すべての項目を入力してください")
-      return
+      alert("すべての項目を入力してください");
+      return;
     }
 
-    const uid = auth.currentUser?.uid
+    const uid = auth.currentUser?.uid;
     if (!uid) {
-      alert("ログインが必要です")
-      return
+      alert("ログインが必要です");
+      return;
     }
 
     try {
@@ -35,14 +35,14 @@ const AddInfo = () => {
         priority,
         plan: [],
         createdAt: serverTimestamp(),
-      })
-      alert("登録しました！")
-      router.push("/")
+      });
+      alert("登録しました！");
+      router.push("/");
     } catch (e) {
-      console.error(e)
-      alert("登録に失敗しました")
+      console.error(e);
+      alert("登録に失敗しました");
     }
-  }
+  };
 
   return (
     <div>
@@ -91,11 +91,9 @@ const AddInfo = () => {
         ))}
       </div>
 
-      <button onClick={handleSend}>
-        企業を登録する
-      </button>
+      <button onClick={handleSend}>企業を登録する</button>
     </div>
-  )
-}
+  );
+};
 
-export default AddInfo
+export default AddInfo;
