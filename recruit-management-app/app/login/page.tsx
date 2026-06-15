@@ -1,5 +1,6 @@
 "use client";
 import { auth } from "@/lib/firebase";
+import { Button, Paper, TextField, Typography } from "@mui/material";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -52,26 +53,72 @@ const page = () => {
     }
   };
   return (
-    <div>
-      <h1>ログイン</h1>
-      <input
-        type="email"
-        placeholder="メールアドレス"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="パスワード"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleSend}>ログインする</button>
-      <Link href={"/auth"}>
-        <p>アカウントを新規登録する＞＞</p>
-      </Link>
-    </div>
+    <Paper
+      sx={{
+        maxWidth: 500,
+        mx: "auto",
+        mt: "75px",
+        p: 3,
+      }}
+    >
+      <Typography variant="h5" sx={{ mb: 3 }}>
+        ログイン
+      </Typography>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}
+      >
+        <TextField
+          label="メールアドレス"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          fullWidth
+        />
+
+        <TextField
+          label="パスワード"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          fullWidth
+        />
+
+        {error && (
+          <Typography color="error">
+            {error}
+          </Typography>
+        )}
+
+        <Button
+          variant="contained"
+          onClick={handleSend}
+        >
+          ログイン
+        </Button>
+
+        <Link
+          href="/auth"
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          <Typography
+            color="primary"
+            sx={{
+              textAlign: "center",
+            }}
+          >
+            アカウントを新規登録する
+          </Typography>
+        </Link>
+      </div>
+    </Paper>
   );
-};
+}
 
 export default page;

@@ -1,6 +1,7 @@
 "use client";
 
 import { auth, db } from "@/lib/firebase";
+import { Button, Paper, TextField, Typography } from "@mui/material";
 import {
   arrayUnion,
   collection,
@@ -24,6 +25,7 @@ const AddPlan = () => {
   const [planTime, setPlanTime] = useState("");
   const [planTitle, setPlanTitle] = useState("");
   const [planPlace, setPlanPlace] = useState("");
+  const [planSummary, setPlanSummary] = useState("")
 
   useEffect(() => {
     const fetch = async () => {
@@ -62,6 +64,7 @@ const AddPlan = () => {
           time: planTime.replace(":", ""),
           title: planTitle,
           place: planPlace,
+          summary: planSummary
         }),
       });
 
@@ -74,47 +77,109 @@ const AddPlan = () => {
   };
 
   return (
-    <div>
-      <h1>予定の追加</h1>
+  <Paper
+    sx={{
+      maxWidth: 600,
+      mx: "auto",
+      mt: 10,
+      p: 3,
+    }}
+  >
+    <Typography variant="h5" sx={{ mb: 3 }}>
+      予定の追加
+    </Typography>
 
-      <p>企業を選択</p>
-      <select
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+      }}
+    >
+      <TextField
+        select
+        label="企業"
         value={selectedId}
         onChange={(e) => setSelectedId(e.target.value)}
+        fullWidth
+        slotProps={{
+          select: {
+            native: true,
+          },
+        }}
       >
         {companies.map((c) => (
           <option key={c.id} value={c.id}>
             {c.name}
           </option>
         ))}
-      </select>
+      </TextField>
 
-      <input
+      <TextField
+        label="日付"
         type="date"
         value={planDate}
         onChange={(e) => setPlanDate(e.target.value)}
+        slotProps={{
+          inputLabel: {
+            shrink: true,
+          },
+        }}
+        fullWidth
       />
-      <input
+
+      <TextField
+        label="時間"
         type="time"
         value={planTime}
         onChange={(e) => setPlanTime(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="タイトル（例：一次面接)"
-        value={planTitle}
-        onChange={(e) => setPlanTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="場所（例：大阪本社)"
-        value={planPlace}
-        onChange={(e) => setPlanPlace(e.target.value)}
+        slotProps={{
+          inputLabel: {
+            shrink: true,
+          },
+        }}
+        fullWidth
       />
 
-      <button onClick={handleSend}>予定を追加する</button>
+      <TextField
+        label="タイトル"
+        value={planTitle}
+        onChange={(e) => setPlanTitle(e.target.value)}
+        fullWidth
+      />
+
+      <TextField
+        label="場所"
+        value={planPlace}
+        onChange={(e) => setPlanPlace(e.target.value)}
+        fullWidth
+      />
+
+      <TextField
+        label="メモ"
+        value={planSummary}
+        onChange={(e) => setPlanSummary(e.target.value)}
+        multiline
+        rows={4}
+        fullWidth
+      />
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Button
+          variant="contained"
+          onClick={handleSend}
+        >
+          予定を追加
+        </Button>
+      </div>
     </div>
-  );
-};
+  </Paper>
+);
+}
 
 export default AddPlan;

@@ -13,7 +13,8 @@ const RightContent = ({ company }: Props) => {
     <div
       style={{
         backgroundColor: "#FFFFFF",
-        flex: "1",
+        width: "50%",
+        marginLeft: "50%",
         padding: "5px",
       }}
     >
@@ -38,7 +39,7 @@ const RightContent = ({ company }: Props) => {
           padding: "10px",
         }}
       >
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1, padding: "10px" }}>
           <CompanySummary company={company} />
         </div>
         <div
@@ -49,7 +50,14 @@ const RightContent = ({ company }: Props) => {
             backgroundColor: "#CCCCCC",
           }}
         />
-        <div style={{ flex: 1, padding: "10px" }}>
+        <div 
+        className="RightBox"
+        style={{
+          flex: 1,
+          padding: "10px",
+          overflow: "scroll",
+          overflowX: "hidden"
+        }}>
           <CompanySchedule company={company} />
         </div>
       </div>

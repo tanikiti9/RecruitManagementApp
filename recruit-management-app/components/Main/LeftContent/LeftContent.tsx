@@ -30,31 +30,41 @@ const LeftContent = ({ companies, selectedId, onSelect }: Props) => {
     });
   return (
     <div
+      className="LeftBox"
       style={{
+        paddingLeft: "15px",
+        paddingRight: "10px",
+        marginRight: "5px",
         backgroundColor: "#FFFFFF",
+        position: "fixed",
+        width: "50%",
         height: "calc(100vh - 95px)",
-        flex: "1",
+        overflow: "scroll",
+        overflowX: "hidden",
       }}
     >
+      <div
+        style={{
+          fontSize: "1.8rem",
+          fontWeight: "bold",
+          height: "60px",
+          alignItems: "center",
+          display: "flex",
+          paddingLeft: "30px",
+          borderBottom: "1px solid #CCCCCC",
+        }}
+      >予定</div>
+
       {allPlans.length === 0 && <p>予定がありません</p>}
       {allPlans.map((plan, index) => (
         <div
           key={index}
           onClick={() => onSelect(plan.companyId)}
-          style={{
-            padding: "10px",
-            marginLeft: "10px",
-            marginRight: "10px",
-          }}
+          className="box"
+          style={{fontSize: "1.5rem"}}
         >
           <p>{plan.companyName}</p>
           <SummaryCard interns={[plan]} companyId={plan.companyId} />
-          <div
-            style={{
-              height: "1px",
-              backgroundColor: "#CCCCCC",
-            }}
-          />
         </div>
       ))}
     </div>

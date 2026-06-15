@@ -12,7 +12,7 @@ const NumberFormat = ({ value }: Props) => {
 
   return (
     <div>
-      {oku}億{man != 0 ? `${man}万` : ""}円
+      {oku != 0 ? `${oku}億` : ""}{man != 0 ? `${man}万` : ""}円
     </div>
   );
 };

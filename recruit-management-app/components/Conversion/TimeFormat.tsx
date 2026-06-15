@@ -9,7 +9,7 @@ const TimeFormat = ({ value }: Props) => {
   const m = String(value).slice(2, 4);
   return (
     <div>
-      {h}：{m}
+      {h}：{m} ～
     </div>
   );
 };

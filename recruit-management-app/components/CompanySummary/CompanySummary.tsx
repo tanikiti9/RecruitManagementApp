@@ -3,6 +3,7 @@ import { company_type } from "@/type/interface";
 import NumberFormat from "../Conversion/NumberFormat";
 import { updateCompany } from "@/lib/companyService";
 import { useState } from "react";
+import { Button, TextField } from "@mui/material";
 
 interface Props {
   company: company_type;
@@ -38,89 +39,243 @@ const CompanySummary = ({ company }: Props) => {
 
   if (isEditing) {
     return (
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+          padding: "16px",
+        }}
+      >
+        <TextField
+          label="企業名"
+          value={editValues.name}
+          onChange={(e) =>
+            setEditValues({ ...editValues, name: e.target.value })
+          }
+          fullWidth
+        />
+
+        <TextField
+          label="資本金"
+          type="number"
+          value={editValues.capital}
+          onChange={(e) =>
+            setEditValues({ ...editValues, capital: e.target.value })
+          }
+          fullWidth
+        />
+
+        <TextField
+          label="代表取締役"
+          value={editValues.director}
+          onChange={(e) =>
+            setEditValues({ ...editValues, director: e.target.value })
+          }
+          fullWidth
+        />
+
+        <TextField
+          label="その他情報"
+          value={editValues.summary}
+          onChange={(e) =>
+            setEditValues({ ...editValues, summary: e.target.value })
+          }
+          multiline
+          rows={4}
+          fullWidth
+        />
+
         <div>
-          <label>企業名</label>
-          <input
-            type="text"
-            value={editValues.name}
-            onChange={(e) =>
-              setEditValues({ ...editValues, name: e.target.value })
-            }
-          />
+          <div style={{ marginBottom: "8px" }}>
+            スケール：{editValues.scale}
+          </div>
+
+          <div style={{ display: "flex", gap: "8px" }}>
+            {(["大", "中", "小"] as const).map((v) => (
+              <Button
+                key={v}
+                variant={editValues.scale === v ? "contained" : "outlined"}
+                onClick={() =>
+                  setEditValues({
+                    ...editValues,
+                    scale: v,
+                  })
+                }
+              >
+                {v}
+              </Button>
+            ))}
+          </div>
         </div>
+
         <div>
-          <label>資本金</label>
-          <input
-            type="number"
-            value={editValues.capital}
-            onChange={(e) =>
-              setEditValues({ ...editValues, capital: e.target.value })
-            }
-          />
+          <div style={{ marginBottom: "8px" }}>
+            優先度：{editValues.priority}
+          </div>
+
+          <div style={{ display: "flex", gap: "8px" }}>
+            {(["大", "中", "小"] as const).map((v) => (
+              <Button
+                key={v}
+                variant={editValues.priority === v ? "contained" : "outlined"}
+                onClick={() =>
+                  setEditValues({
+                    ...editValues,
+                    priority: v,
+                  })
+                }
+              >
+                {v}
+              </Button>
+            ))}
+          </div>
         </div>
-        <div>
-          <label>代表取締役</label>
-          <input
-            type="text"
-            value={editValues.director}
-            onChange={(e) =>
-              setEditValues({ ...editValues, director: e.target.value })
-            }
-          />
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            gap: "8px",
+          }}
+        >
+          <Button
+            variant="outlined"
+            onClick={() => setIsEditing(false)}
+          >
+            キャンセル
+          </Button>
+
+          <Button
+            variant="contained"
+            onClick={handleSave}
+          >
+            保存
+          </Button>
         </div>
-        <div>
-          <label>その他情報</label>
-          <textarea
-            value={editValues.summary}
-            onChange={(e) =>
-              setEditValues({ ...editValues, summary: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label>スケール：{editValues.scale}</label>
-          {(["大", "中", "小"] as const).map((v) => (
-            <button
-              key={v}
-              onClick={() => setEditValues({ ...editValues, scale: v })}
-            >
-              {v}
-            </button>
-          ))}
-        </div>
-        <div>
-          <label>優先度：{editValues.priority}</label>
-          {(["大", "中", "小"] as const).map((v) => (
-            <button
-              key={v}
-              onClick={() => setEditValues({ ...editValues, priority: v })}
-            >
-              {v}
-            </button>
-          ))}
-        </div>
-        <button onClick={handleSave}>保存</button>
-        <button onClick={() => setIsEditing(false)}>キャンセル</button>
       </div>
     );
   }
 
   return (
-    <div>
-      <div style={{ display: "flex" }}>
-        資本金：
-        <NumberFormat value={company.capital} />
-      </div>
-      <div>代表取締役：{company.director}</div>
+    <div
+      style={{
+        padding: "16px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+      }}
+    >
       <div>
-        その他情報
-        <br />
-        {company.summary}
+        <div
+          style={{
+            fontSize: "1rem",
+            marginBottom: "4px",
+            color: "#666",
+            borderBottom: "1px solid #666"
+          }}
+        >
+          資本金
+        </div>
+
+        <div
+          style={{
+            fontSize: "1.4rem",
+          }}
+        >
+          <NumberFormat value={company.capital} />
+        </div>
       </div>
-      <div>スケール：{company.scale}</div>
-      <div>優先度：{company.priority}</div>
-      <button onClick={() => setIsEditing(true)}>編集</button>
+
+      <div>
+        <div
+          style={{
+            fontSize: "1rem",
+            marginBottom: "4px",
+            color: "#666",
+            borderBottom: "1px solid #666"
+          }}
+        >
+          代表取締役
+        </div>
+
+        <div
+          style={{ fontSize: "1.4rem" }}
+        >
+          {company.director}
+        </div>
+      </div>
+
+      <div>
+        <div
+          style={{
+            fontSize: "1rem",
+            color: "#666",
+            marginBottom: "4px",
+            borderBottom: "1px solid #666"
+
+          }}
+        >
+          その他情報
+        </div>
+
+        <div
+          style={{
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          {company.summary}
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "16px",
+        }}
+      >
+        <div>
+          <div
+            style={{
+              fontSize: "15px",
+              color: "#666",
+              marginBottom: "4px",
+            }}
+          >
+            スケール
+          </div>
+
+          <Button variant="outlined">{company.scale}</Button>
+        </div>
+
+        <div>
+          <div
+            style={{
+              fontSize: "15px",
+              color: "#666",
+              marginBottom: "4px",
+            }}
+          >
+            優先度
+          </div>
+
+          <Button variant="outlined">{company.priority}</Button>
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Button
+          variant="outlined"
+          onClick={() => setIsEditing(true)}
+        >
+          編集
+        </Button>
+      </div>
     </div>
   );
 };

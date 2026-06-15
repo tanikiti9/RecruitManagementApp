@@ -3,6 +3,7 @@ import Link from "next/link";
 import { auth } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { Button } from "@mui/material";
 
 const Header = () => {
   const router = useRouter();
@@ -15,22 +16,24 @@ const Header = () => {
   return (
     <header
       style={{
+        width: "100%",
         height: "75px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
         backgroundColor: "cyan",
+        position: "fixed"
       }}
     >
       <div>
-        <Link href="/" style={{ textDecoration: "none", color: "black" }}>
+        <Link href="/" style={{ textDecoration: "none", color: "black", paddingLeft: "20px" }}>
           就活管理
         </Link>
       </div>
       <div
         style={{
           display: "flex",
-          width: "30%",
+          width: "22%",
           height: "75px",
           alignItems: "center",
           justifyContent: "space-between",
@@ -38,19 +41,19 @@ const Header = () => {
         }}
       >
         <Link href="/addpage">
-          <div>
-            <button className="add-btn">企業追加</button>
+          <div style={{borderBottom: "2px solid #1976d2"}}>
+            <Button variant="text" className="add-btn">企業追加</Button>
           </div>
         </Link>
         <Link href="/addplan">
-          <div>
-            <button className="add-btn">予定を追加</button>
+          <div style={{borderBottom: "2px solid #1976d2"}}>
+            <Button variant="text" className="add-btn">予定を追加</Button>
           </div>
         </Link>
-        <div>
-          <button className="add-btn" onClick={handleLogout}>
+        <div style={{borderBottom: "2px solid #1976d2"}}>
+          <Button variant="text" className="add-btn" onClick={handleLogout}>
             ログアウト
-          </button>
+          </Button>
         </div>
       </div>
     </header>

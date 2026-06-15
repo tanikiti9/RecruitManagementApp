@@ -1,5 +1,6 @@
 "use client";
 import { auth, db } from "@/lib/firebase";
+import { Button, Paper, TextField, Typography } from "@mui/material";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -14,6 +15,10 @@ const AddInfo = () => {
   const [priority, setPriority] = useState<"大" | "中" | "小" | "">("");
 
   const handleSend = async () => {
+    if(Number(capital) < 0){
+      alert("資本金にマイナスは使えません")
+      return;
+    }
     if (!name || !capital || !director || !scale || !priority) {
       alert("すべての項目を入力してください");
       return;
@@ -45,55 +50,113 @@ const AddInfo = () => {
   };
 
   return (
-    <div>
-      <h1>企業情報の登録</h1>
+    <Paper
+      sx={{
+        maxWidth: 600,
+        mx: "auto",
+        mt: 10,
+        p: 3,
+      }}
+    >
+      <Typography variant="h5" sx={{ mb: 3 }}>
+        企業情報の登録
+      </Typography>
 
-      <input
-        type="text"
-        placeholder="企業名"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="資本金"
-        value={capital}
-        onChange={(e) => setCapital(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="代表取締役"
-        value={director}
-        onChange={(e) => setDirector(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="その他情報"
-        value={summary}
-        onChange={(e) => setSummary(e.target.value)}
-      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}
+      >
+        <TextField
+          label="企業名"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          fullWidth
+        />
 
-      <p>スケール：{scale}</p>
-      <div>
-        {(["大", "中", "小"] as const).map((v) => (
-          <button key={v} onClick={() => setScale(v)}>
-            {v}
-          </button>
-        ))}
+        <TextField
+          label="資本金"
+          type="number"
+          value={capital}
+          onChange={(e) => setCapital(e.target.value)}
+          slotProps={{
+            htmlInput: {
+              min: 0,
+            },
+          }}
+          fullWidth
+        />
+
+        <TextField
+          label="代表取締役"
+          value={director}
+          onChange={(e) => setDirector(e.target.value)}
+          fullWidth
+        />
+
+        <TextField
+          label="その他情報"
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
+          multiline
+          rows={4}
+          fullWidth
+        />
+
+        <div>
+          <Typography sx={{ mb: 1 }}>
+            スケール：{scale || "未選択"}
+          </Typography>
+
+          <div style={{ display: "flex", gap: "8px" }}>
+            {(["大", "中", "小"] as const).map((v) => (
+              <Button
+                key={v}
+                variant={scale === v ? "contained" : "outlined"}
+                onClick={() => setScale(v)}
+              >
+                {v}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <Typography sx={{ mb: 1 }}>
+            優先度：{priority || "未選択"}
+          </Typography>
+
+          <div style={{ display: "flex", gap: "8px" }}>
+            {(["大", "中", "小"] as const).map((v) => (
+              <Button
+                key={v}
+                variant={priority === v ? "contained" : "outlined"}
+                onClick={() => setPriority(v)}
+              >
+                {v}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Button
+            variant="contained"
+            onClick={handleSend}
+          >
+            登録
+          </Button>
+        </div>
       </div>
-
-      <p>優先度：{priority}</p>
-      <div>
-        {(["大", "中", "小"] as const).map((v) => (
-          <button key={v} onClick={() => setPriority(v)}>
-            {v}
-          </button>
-        ))}
-      </div>
-
-      <button onClick={handleSend}>企業を登録する</button>
-    </div>
+    </Paper>
   );
-};
+}
 
 export default AddInfo;

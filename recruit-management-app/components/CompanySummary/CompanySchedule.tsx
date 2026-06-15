@@ -1,6 +1,6 @@
 import React from "react";
-import SummaryCard from "../Main/LeftContent/SummaryCard";
 import { company_type } from "@/type/interface";
+import SummaryCardRight from "../Main/RightContent/SummaryCardRight";
 
 interface Props {
   company: company_type;
@@ -9,7 +9,7 @@ interface Props {
 const CompanySchedule = ({ company }: Props) => {
   return (
     <div>
-      <SummaryCard interns={company.plan} companyId={company.id as string} />
+      <SummaryCardRight interns={company.plan} companyId={company.id as string} />
     </div>
   );
 };
