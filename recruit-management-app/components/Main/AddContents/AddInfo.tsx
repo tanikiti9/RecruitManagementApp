@@ -15,8 +15,8 @@ const AddInfo = () => {
   const [priority, setPriority] = useState<"大" | "中" | "小" | "">("");
 
   const handleSend = async () => {
-    if(Number(capital) < 0){
-      alert("資本金にマイナスは使えません")
+    if (Number(capital) < 0) {
+      alert("資本金にマイナスは使えません");
       return;
     }
     if (!name || !capital || !director || !scale || !priority) {
@@ -54,7 +54,7 @@ const AddInfo = () => {
       sx={{
         maxWidth: 600,
         mx: "auto",
-        mt: 10,
+        mt: 1.5,
         p: 3,
       }}
     >
@@ -106,9 +106,7 @@ const AddInfo = () => {
         />
 
         <div>
-          <Typography sx={{ mb: 1 }}>
-            スケール：{scale || "未選択"}
-          </Typography>
+          <Typography sx={{ mb: 1 }}>スケール：{scale || "未選択"}</Typography>
 
           <div style={{ display: "flex", gap: "8px" }}>
             {(["大", "中", "小"] as const).map((v) => (
@@ -124,9 +122,7 @@ const AddInfo = () => {
         </div>
 
         <div>
-          <Typography sx={{ mb: 1 }}>
-            優先度：{priority || "未選択"}
-          </Typography>
+          <Typography sx={{ mb: 1 }}>優先度：{priority || "未選択"}</Typography>
 
           <div style={{ display: "flex", gap: "8px" }}>
             {(["大", "中", "小"] as const).map((v) => (
@@ -147,16 +143,13 @@ const AddInfo = () => {
             justifyContent: "flex-end",
           }}
         >
-          <Button
-            variant="contained"
-            onClick={handleSend}
-          >
+          <Button variant="contained" onClick={handleSend}>
             登録
           </Button>
         </div>
       </div>
     </Paper>
   );
-}
+};
 
 export default AddInfo;

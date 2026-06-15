@@ -8,7 +8,6 @@ interface Props {
 }
 
 const RightContent = ({ company }: Props) => {
-  console.log(company);
   return (
     <div
       style={{
@@ -50,14 +49,15 @@ const RightContent = ({ company }: Props) => {
             backgroundColor: "#CCCCCC",
           }}
         />
-        <div 
-        className="RightBox"
-        style={{
-          flex: 1,
-          padding: "10px",
-          overflow: "scroll",
-          overflowX: "hidden"
-        }}>
+        <div
+          className="RightBox"
+          style={{
+            flex: 1,
+            padding: "10px",
+            overflow: "scroll",
+            overflowX: "hidden",
+          }}
+        >
           <CompanySchedule company={company} />
         </div>
       </div>

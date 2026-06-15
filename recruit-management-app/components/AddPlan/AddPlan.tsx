@@ -25,7 +25,7 @@ const AddPlan = () => {
   const [planTime, setPlanTime] = useState("");
   const [planTitle, setPlanTitle] = useState("");
   const [planPlace, setPlanPlace] = useState("");
-  const [planSummary, setPlanSummary] = useState("")
+  const [planSummary, setPlanSummary] = useState("");
 
   useEffect(() => {
     const fetch = async () => {
@@ -64,7 +64,7 @@ const AddPlan = () => {
           time: planTime.replace(":", ""),
           title: planTitle,
           place: planPlace,
-          summary: planSummary
+          summary: planSummary,
         }),
       });
 
@@ -77,109 +77,106 @@ const AddPlan = () => {
   };
 
   return (
-  <Paper
-    sx={{
-      maxWidth: 600,
-      mx: "auto",
-      mt: 10,
-      p: 3,
-    }}
-  >
-    <Typography variant="h5" sx={{ mb: 3 }}>
-      予定の追加
-    </Typography>
-
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
+    <Paper
+      sx={{
+        maxWidth: 600,
+        mx: "auto",
+        mt: 1.5,
+        p: 3,
       }}
     >
-      <TextField
-        select
-        label="企業"
-        value={selectedId}
-        onChange={(e) => setSelectedId(e.target.value)}
-        fullWidth
-        slotProps={{
-          select: {
-            native: true,
-          },
-        }}
-      >
-        {companies.map((c) => (
-          <option key={c.id} value={c.id}>
-            {c.name}
-          </option>
-        ))}
-      </TextField>
-
-      <TextField
-        label="日付"
-        type="date"
-        value={planDate}
-        onChange={(e) => setPlanDate(e.target.value)}
-        slotProps={{
-          inputLabel: {
-            shrink: true,
-          },
-        }}
-        fullWidth
-      />
-
-      <TextField
-        label="時間"
-        type="time"
-        value={planTime}
-        onChange={(e) => setPlanTime(e.target.value)}
-        slotProps={{
-          inputLabel: {
-            shrink: true,
-          },
-        }}
-        fullWidth
-      />
-
-      <TextField
-        label="タイトル"
-        value={planTitle}
-        onChange={(e) => setPlanTitle(e.target.value)}
-        fullWidth
-      />
-
-      <TextField
-        label="場所"
-        value={planPlace}
-        onChange={(e) => setPlanPlace(e.target.value)}
-        fullWidth
-      />
-
-      <TextField
-        label="メモ"
-        value={planSummary}
-        onChange={(e) => setPlanSummary(e.target.value)}
-        multiline
-        rows={4}
-        fullWidth
-      />
+      <Typography variant="h5" sx={{ mb: 3 }}>
+        予定の追加
+      </Typography>
 
       <div
         style={{
           display: "flex",
-          justifyContent: "flex-end",
+          flexDirection: "column",
+          gap: "16px",
         }}
       >
-        <Button
-          variant="contained"
-          onClick={handleSend}
+        <TextField
+          select
+          label="企業"
+          value={selectedId}
+          onChange={(e) => setSelectedId(e.target.value)}
+          fullWidth
+          slotProps={{
+            select: {
+              native: true,
+            },
+          }}
         >
-          予定を追加
-        </Button>
+          {companies.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.name}
+            </option>
+          ))}
+        </TextField>
+
+        <TextField
+          label="日付"
+          type="date"
+          value={planDate}
+          onChange={(e) => setPlanDate(e.target.value)}
+          slotProps={{
+            inputLabel: {
+              shrink: true,
+            },
+          }}
+          fullWidth
+        />
+
+        <TextField
+          label="時間"
+          type="time"
+          value={planTime}
+          onChange={(e) => setPlanTime(e.target.value)}
+          slotProps={{
+            inputLabel: {
+              shrink: true,
+            },
+          }}
+          fullWidth
+        />
+
+        <TextField
+          label="タイトル"
+          value={planTitle}
+          onChange={(e) => setPlanTitle(e.target.value)}
+          fullWidth
+        />
+
+        <TextField
+          label="場所"
+          value={planPlace}
+          onChange={(e) => setPlanPlace(e.target.value)}
+          fullWidth
+        />
+
+        <TextField
+          label="メモ"
+          value={planSummary}
+          onChange={(e) => setPlanSummary(e.target.value)}
+          multiline
+          rows={4}
+          fullWidth
+        />
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Button variant="contained" onClick={handleSend}>
+            予定を追加
+          </Button>
+        </div>
       </div>
-    </div>
-  </Paper>
-);
-}
+    </Paper>
+  );
+};
 
 export default AddPlan;

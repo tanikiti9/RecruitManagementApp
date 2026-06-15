@@ -16,8 +16,10 @@ const page = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       router.push("/");
-    } catch {
-      if (error) console.error;
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+      }
     }
   };
 
@@ -57,16 +59,9 @@ const page = () => {
           fullWidth
         />
 
-        {error && (
-          <Typography color="error">
-            {error}
-          </Typography>
-        )}
+        {error && <Typography color="error">{error}</Typography>}
 
-        <Button
-          variant="contained"
-          onClick={handleSend}
-        >
+        <Button variant="contained" onClick={handleSend}>
           登録
         </Button>
         <Link

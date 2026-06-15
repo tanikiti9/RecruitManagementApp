@@ -14,5 +14,5 @@ export interface intern {
   time: string; //hhmm
   title: string; //タイトル
   place: string; //場所
-  summary?: string;//概要
+  summary?: string; //概要
 }

@@ -139,17 +139,11 @@ const CompanySummary = ({ company }: Props) => {
             gap: "8px",
           }}
         >
-          <Button
-            variant="outlined"
-            onClick={() => setIsEditing(false)}
-          >
+          <Button variant="outlined" onClick={() => setIsEditing(false)}>
             キャンセル
           </Button>
 
-          <Button
-            variant="contained"
-            onClick={handleSave}
-          >
+          <Button variant="contained" onClick={handleSave}>
             保存
           </Button>
         </div>
@@ -172,7 +166,7 @@ const CompanySummary = ({ company }: Props) => {
             fontSize: "1rem",
             marginBottom: "4px",
             color: "#666",
-            borderBottom: "1px solid #666"
+            borderBottom: "1px solid #666",
           }}
         >
           資本金
@@ -193,17 +187,13 @@ const CompanySummary = ({ company }: Props) => {
             fontSize: "1rem",
             marginBottom: "4px",
             color: "#666",
-            borderBottom: "1px solid #666"
+            borderBottom: "1px solid #666",
           }}
         >
           代表取締役
         </div>
 
-        <div
-          style={{ fontSize: "1.4rem" }}
-        >
-          {company.director}
-        </div>
+        <div style={{ fontSize: "1.4rem" }}>{company.director}</div>
       </div>
 
       <div>
@@ -212,8 +202,7 @@ const CompanySummary = ({ company }: Props) => {
             fontSize: "1rem",
             color: "#666",
             marginBottom: "4px",
-            borderBottom: "1px solid #666"
-
+            borderBottom: "1px solid #666",
           }}
         >
           その他情報
@@ -269,10 +258,7 @@ const CompanySummary = ({ company }: Props) => {
           justifyContent: "flex-end",
         }}
       >
-        <Button
-          variant="outlined"
-          onClick={() => setIsEditing(true)}
-        >
+        <Button variant="outlined" onClick={() => setIsEditing(true)}>
           編集
         </Button>
       </div>

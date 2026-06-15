@@ -1,8 +1,8 @@
 "use client";
 import DateFormat from "@/components/Conversion/DateFormat";
 import TimeFormat from "@/components/Conversion/TimeFormat";
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import { intern } from "@/type/interface";
 import { deletePlan, updatePlan } from "@/lib/companyService";
 import { useState } from "react";
@@ -180,21 +180,42 @@ const SummaryCard = ({ interns, companyId }: Props) => {
               <div style={{ display: "flex" }}>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: "flex" }}>
-                    <div style={{ flex: 1, fontSize: "1.75rem" }}><DateFormat value={String(intern.date)} /></div>
-                    <div style={{ flex: 1, fontSize: "1.75rem" }}><TimeFormat value={String(intern.time).padStart(4, "0")} /></div>
+                    <div style={{ flex: 1, fontSize: "1.75rem" }}>
+                      <DateFormat value={String(intern.date)} />
+                    </div>
+                    <div style={{ flex: 1, fontSize: "1.75rem" }}>
+                      <TimeFormat
+                        value={String(intern.time).padStart(4, "0")}
+                      />
+                    </div>
                   </div>
                   <div>
-                    <span style={{ fontSize: "1.5rem" }}>{intern.title}</span> <span style={{ fontSize: "1.5rem" }}>{intern.place}</span>
+                    <span style={{ fontSize: "1.5rem" }}>{intern.title}</span>{" "}
+                    <span style={{ fontSize: "1.5rem" }}>{intern.place}</span>
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: "8px", height: "70px" }}>
-                  <Button variant="outlined" onClick={() => handleEditStart(intern, index)}><EditIcon /></Button>
-                  <Button variant="outlined" onClick={() => handleDelete(intern)}><DeleteIcon /></Button>
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleEditStart(intern, index)}
+                  >
+                    <EditIcon />
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleDelete(intern)}
+                  >
+                    <DeleteIcon />
+                  </Button>
                 </div>
               </div>
               <div
                 onClick={() => toggleOpen(index)}
-                style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+                style={{
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               >
                 <span>詳細</span>
                 <span style={{ marginLeft: "auto" }}>

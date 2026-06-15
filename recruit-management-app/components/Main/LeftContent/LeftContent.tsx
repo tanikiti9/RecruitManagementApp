@@ -47,13 +47,15 @@ const LeftContent = ({ companies, selectedId, onSelect }: Props) => {
         style={{
           fontSize: "1.8rem",
           fontWeight: "bold",
-          height: "60px",
+          height: "70px",
           alignItems: "center",
           display: "flex",
           paddingLeft: "30px",
           borderBottom: "1px solid #CCCCCC",
         }}
-      >予定</div>
+      >
+        予定
+      </div>
 
       {allPlans.length === 0 && <p>予定がありません</p>}
       {allPlans.map((plan, index) => (
@@ -61,7 +63,7 @@ const LeftContent = ({ companies, selectedId, onSelect }: Props) => {
           key={index}
           onClick={() => onSelect(plan.companyId)}
           className="box"
-          style={{fontSize: "1.5rem"}}
+          style={{ fontSize: "1.5rem" }}
         >
           <p>{plan.companyName}</p>
           <SummaryCard interns={[plan]} companyId={plan.companyId} />

@@ -22,9 +22,21 @@ const RightHeader = ({ company }: Props) => {
   };
 
   return (
-    <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-around", gap: "16px" }}>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-around",
+        gap: "16px",
+      }}
+    >
       <div style={{ fontWeight: "bold" }}>{company.name}</div>
-      <div><Button variant="text" color="error" onClick={handleDelete}>会社を削除</Button></div>
+      <div>
+        <Button variant="text" color="error" onClick={handleDelete}>
+          会社を削除
+        </Button>
+      </div>
     </div>
   );
 };

@@ -88,16 +88,9 @@ const page = () => {
           fullWidth
         />
 
-        {error && (
-          <Typography color="error">
-            {error}
-          </Typography>
-        )}
+        {error && <Typography color="error">{error}</Typography>}
 
-        <Button
-          variant="contained"
-          onClick={handleSend}
-        >
+        <Button variant="contained" onClick={handleSend}>
           ログイン
         </Button>
 
@@ -119,6 +112,6 @@ const page = () => {
       </div>
     </Paper>
   );
-}
+};
 
 export default page;

@@ -21,40 +21,90 @@ const Header = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "cyan",
-        position: "fixed"
+        backgroundColor: "#1976d2",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 1000,
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
       }}
     >
       <div>
-        <Link href="/" style={{ textDecoration: "none", color: "black", paddingLeft: "20px" }}>
+        <Link
+          href="/"
+          style={{
+            textDecoration: "none",
+            color: "white",
+            paddingLeft: "20px",
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+          }}
+        >
           就活管理
         </Link>
       </div>
+
       <div
         style={{
           display: "flex",
-          width: "22%",
           height: "75px",
           alignItems: "center",
-          justifyContent: "space-between",
-          padding: "20px",
+          gap: "12px",
+          paddingRight: "20px",
         }}
       >
-        <Link href="/addpage">
-          <div style={{borderBottom: "2px solid #1976d2"}}>
-            <Button variant="text" className="add-btn">企業追加</Button>
-          </div>
-        </Link>
-        <Link href="/addplan">
-          <div style={{borderBottom: "2px solid #1976d2"}}>
-            <Button variant="text" className="add-btn">予定を追加</Button>
-          </div>
-        </Link>
-        <div style={{borderBottom: "2px solid #1976d2"}}>
-          <Button variant="text" className="add-btn" onClick={handleLogout}>
-            ログアウト
+        <Link href="/addpage" style={{ textDecoration: "none" }}>
+          <Button
+            variant="text"
+            sx={{
+              color: "white",
+              borderBottom: "2px solid transparent",
+              borderRadius: 0,
+              height: "75px",
+              "&:hover": {
+                borderBottom: "2px solid white",
+                backgroundColor: "rgba(255,255,255,0.1)",
+              },
+            }}
+          >
+            企業追加
           </Button>
-        </div>
+        </Link>
+
+        <Link href="/addplan" style={{ textDecoration: "none" }}>
+          <Button
+            variant="text"
+            sx={{
+              color: "white",
+              borderBottom: "2px solid transparent",
+              borderRadius: 0,
+              height: "75px",
+              "&:hover": {
+                borderBottom: "2px solid white",
+                backgroundColor: "rgba(255,255,255,0.1)",
+              },
+            }}
+          >
+            予定追加
+          </Button>
+        </Link>
+
+        <Button
+          variant="text"
+          onClick={handleLogout}
+          sx={{
+            color: "white",
+            borderBottom: "2px solid transparent",
+            borderRadius: 0,
+            height: "75px",
+            "&:hover": {
+              borderBottom: "2px solid white",
+              backgroundColor: "rgba(255,255,255,0.1)",
+            },
+          }}
+        >
+          ログアウト
+        </Button>
       </div>
     </header>
   );

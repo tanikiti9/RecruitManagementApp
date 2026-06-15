@@ -9,7 +9,10 @@ interface Props {
 const CompanySchedule = ({ company }: Props) => {
   return (
     <div>
-      <SummaryCardRight interns={company.plan} companyId={company.id as string} />
+      <SummaryCardRight
+        interns={company.plan}
+        companyId={company.id as string}
+      />
     </div>
   );
 };

@@ -12,20 +12,17 @@ hr {
   margin-left: 10px;
 }
 
-
 .box:hover {
   border-right: 1px solid #cccccc;
   border-left: 1px solid #cccccc;
 }
 
-
 .box:active {
-  background-color: #CCCCCC;
+  background-color: #cccccc;
 }
 
-
 .LeftBox::-webkit-scrollbar-thumb {
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   border-radius: 3.75px;
 }
 
@@ -34,20 +31,18 @@ hr {
   margin-right: 5px;
 }
 
-
 .RightBox::-webkit-scrollbar-thumb:hover {
   background-color: #aaaaaa;
 }
 
 .RightBox::-webkit-scrollbar-thumb {
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   border-radius: 3.75px;
 }
 
 .RightBox::-webkit-scrollbar {
   width: 7.5px;
 }
-
 
 .LeftBox::-webkit-scrollbar-thumb:hover {
   background-color: #aaaaaa;

@@ -30,7 +30,7 @@ const Main = () => {
   if (!selectedCompany) return null;
 
   return (
-    <div style={{ display: "flex", marginTop: "75px" }}>
+    <div style={{ display: "flex" }}>
       <LeftContent
         companies={companies}
         selectedId={selectedId}

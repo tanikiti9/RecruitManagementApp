@@ -1,6 +1,5 @@
 import { auth, db } from "./firebase";
 import {
-  arrayRemove,
   collection,
   deleteDoc,
   doc,
@@ -41,9 +40,9 @@ export const deletePlan = async (companyId: string, plan: intern) => {
   const currentPlan = snap.data().plan ?? [];
 
   const updated = currentPlan.filter(
-    (p: any) =>
+    (p: intern) =>
       !(
-        p.date == plan.date &&
+        p.date === plan.date &&
         p.time == plan.time &&
         p.title === plan.title &&
         p.place === plan.place
