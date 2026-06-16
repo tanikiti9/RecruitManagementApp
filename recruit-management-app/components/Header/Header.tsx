@@ -4,6 +4,7 @@ import { auth } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { Button } from "@mui/material";
+import { trainOne } from "@/fonts/fonts";
 
 const Header = () => {
   const router = useRouter();
@@ -32,12 +33,12 @@ const Header = () => {
       <div>
         <Link
           href="/"
+          // className={trainOne.className}
           style={{
             textDecoration: "none",
             color: "white",
             paddingLeft: "20px",
-            fontSize: "1.5rem",
-            fontWeight: "bold",
+            fontSize: "1.56rem",
           }}
         >
           就活管理

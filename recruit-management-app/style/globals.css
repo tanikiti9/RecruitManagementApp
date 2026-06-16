@@ -47,3 +47,7 @@ hr {
 .LeftBox::-webkit-scrollbar-thumb:hover {
   background-color: #aaaaaa;
 }
+
+.logo-font {
+  font-family: var(--font-train);
+}
