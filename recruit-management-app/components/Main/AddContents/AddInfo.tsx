@@ -54,7 +54,7 @@ const AddInfo = () => {
       sx={{
         maxWidth: 600,
         mx: "auto",
-        mt: 1.5,
+        mt: "90px",
         p: 3,
       }}
     >
@@ -77,7 +77,7 @@ const AddInfo = () => {
         />
 
         <TextField
-          label="資本金"
+          label="資本金（数字）"
           type="number"
           value={capital}
           onChange={(e) => setCapital(e.target.value)}

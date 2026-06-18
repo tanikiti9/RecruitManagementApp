@@ -81,7 +81,7 @@ const AddPlan = () => {
       sx={{
         maxWidth: 600,
         mx: "auto",
-        mt: 1.5,
+        mt: "90px",
         p: 3,
       }}
     >

@@ -3,6 +3,7 @@ import { company_type } from "@/type/interface";
 import { deleteCompany } from "@/lib/companyService";
 import { useRouter } from "next/navigation";
 import { Button } from "@mui/material";
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 interface Props {
   company: company_type;
@@ -31,6 +32,7 @@ const RightHeader = ({ company }: Props) => {
         gap: "16px",
       }}
     >
+      <div><KeyboardDoubleArrowRightIcon sx={{fontSize: "55px"}}/></div>
       <div style={{ fontWeight: "bold" }}>{company.name}</div>
       <div>
         <Button variant="text" color="error" onClick={handleDelete}>

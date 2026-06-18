@@ -97,12 +97,14 @@ export const updatePlan = async (
     p.date == oldPlan.date &&
     p.time == oldPlan.time &&
     p.title === oldPlan.title &&
-    p.place === oldPlan.place
+    p.place === oldPlan.place &&
+    p.summary == oldPlan.summary
       ? {
           date: newPlan.date,
           time: newPlan.time,
           title: newPlan.title,
           place: newPlan.place,
+          summary: newPlan.summary
         }
       : p,
   );

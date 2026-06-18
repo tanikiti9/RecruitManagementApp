@@ -47,6 +47,7 @@ const SummaryCard = ({ interns, companyId }: Props) => {
         time: editValues.time.replace(":", ""),
         title: editValues.title,
         place: editValues.place,
+        summary: editValues.summary
       };
       await updatePlan(companyId, oldPlan, newPlan);
       setEditingIndex(null);
@@ -223,8 +224,10 @@ const SummaryCard = ({ interns, companyId }: Props) => {
                 </span>
               </div>
               {openIndexes[index] && (
-                <div style={{ fontSize: "1.25rem" }}>
-                  <p>{intern.summary ?? "メモがありません"}</p>
+                <div style={{ fontSize: "1rem" }}>
+                  <p>{intern.summary?.trim()
+                    ? intern.summary
+                    : "メモがありません"}</p>
                 </div>
               )}
               <hr style={{ marginLeft: "0", marginRight: "0" }} />
